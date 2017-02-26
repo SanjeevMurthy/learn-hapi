@@ -1,0 +1,22 @@
+{
+  "name": "birds",
+  "version": "1.0.0",
+  "description": "learn HAPI",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "sanjeev",
+  "license": "ISC",
+  "dependencies": {
+    "hapi": "^16.1.0",
+    "hapi-auth-jwt": "^4.0.0",
+    "jsonwebtoken": "^7.3.0",
+    "knex": "^0.12.7",
+    "mysql": "^2.13.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.23.1",
+    "babel-preset-es2015": "^6.22.0"
+  }
+}
