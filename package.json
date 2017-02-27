@@ -13,6 +13,7 @@
   "author": "sanjeev",
   "license": "ISC",
   "dependencies": {
+    "guid": "0.0.12",
     "hapi": "^16.1.0",
     "hapi-auth-jwt": "^4.0.0",
     "jsonwebtoken": "^7.3.0",
