@@ -17,6 +17,14 @@ server.ext('onRequest', function (request, reply) {
   reply.continue();
 });
 
+// server.route({
+//   path:'/',
+//   method:'GET',
+//   handler:(request,reply)=>{
+//     reply.file('/templates/index.html');
+//   }
+// });
+
 server.route({
   path: '/',
   method: 'GET',

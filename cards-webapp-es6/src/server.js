@@ -12,21 +12,29 @@ server.ext('onRequest',(request,reply)=>{
   reply.continue();
 });
 
-server.route({
-  path:'/',
-  method:'GET',
-  handler:{ //built-in file handler
-    file:'templates/index.html'
-  }
-});
-
 // server.route({
-//   path:'/hello',
+//   path:'/',
 //   method:'GET',
-//   handler:function(request,reply){
-//     reply("Hello World");
+//   handler:(request,reply)=>{
+//     reply.file('/templates/index.html');
 //   }
 // });
+
+// server.route({
+//   path:'/',
+//   method:'GET',
+//   handler:{ //built-in file handler
+//     file:'templates/index.html'
+//   }
+// });
+
+server.route({
+  path:'/hello',
+  method:'GET',
+  handler:function(request,reply){
+    reply("Hello World");
+  }
+});
 
 
 
