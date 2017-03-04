@@ -10,13 +10,15 @@ exports.register = function(server,options,next){
   };
 
   server.expose({getHello:getHello});
-  
+
   server.route({
     method: 'GET',
-    path: '/hello',
+    path: '/hello/{name}',
     handler: function (request, reply) {
-      const messgae=getHello(request.params.name);
-      return reply(messgae);
+
+      const message=getHello(request.params.name);
+      console.log(message);
+      return reply(message);
     }
   });
   next();
