@@ -3,6 +3,7 @@ import Blipp from 'blipp';
 import Joi from 'joi';
 import Inert from 'inert';
 import Path from 'path';
+import Vision from 'vision';
 
 const server=new Hapi.Server();
 
@@ -105,15 +106,42 @@ server.route({
   }
 });
 
-server.route({
-  path:'/staticfile/{param*}',
-  method:'GET',
-  handler:{
-    directory:{
-      path:Path.join(__dirname,'public'),
-      listing:true
-    }
+server.register(Inert,(err)=>{
+  if(err){
+    throw err;
   }
+
+  server.route({
+    path:'/staticfile/{param*}',
+    method:'GET',
+    handler:{
+      directory:{
+        path:Path.join(__dirname,'public'),
+        listing:true
+      }
+    }
+  });
+
+});
+
+server.register(Vision, (err) => {                  // [1]
+  server.views({                                    // [2]
+    engines: {                                      // [2]
+      handlebars: {                                 // [2]
+        module: require('handlebars')               // [2]
+      }                                             // [2]
+    },                                              // [2]
+    relativeTo: __dirname,                          // [2]
+    path: 'templates'                               // [2]
+  });                                               // [2]
+  server.route({
+    method: 'GET',
+    path: '/index',
+    handler: function (request, reply) {
+      let context = { title: 'Hapi Templates!' };
+      return reply.view('index',context);          // [3]
+    }
+  });
 });
 
 server.register([Blipp,Inert],(err)=>{
