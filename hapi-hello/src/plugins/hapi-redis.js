@@ -6,8 +6,7 @@ exports.register=function(server,options,next){
     host:'127.0.0.1',
     family:4
   });
-  
-  server.expose({db:redis});
+  server.expose('db',redis);
   next();
 }
 
