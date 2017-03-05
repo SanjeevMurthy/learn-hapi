@@ -12,20 +12,35 @@
 //   });
 // });
 
+//Tesing by initiating Server object
+// const Code = require('code');
+// const Lab = require('lab');
+// const Hapi = require('hapi');
+// const lab = exports.lab = Lab.script();
+// lab.test('It will return Hello World', (done) => {
+//   const server = new Hapi.Server();
+//   server.connection();
+//   server.route({
+//     method: 'GET',
+//     path: '/',
+//     handler: function (request, reply) {
+//       return reply('Hello World\n');
+//     }
+//   });
+//   server.inject('/', (res) => {
+//     Code.expect(res.statusCode).to.equal(200);
+//     Code.expect(res.result).to.equal('Hello World\n');
+//     done();
+//   });
+// });
+
+
+//Testing by importing Server object from /lib/index.js
 const Code = require('code');
 const Lab = require('lab');
-const Hapi = require('hapi');
+const server = require('../lib/index.js');
 const lab = exports.lab = Lab.script();
 lab.test('It will return Hello World', (done) => {
-  const server = new Hapi.Server();
-  server.connection();
-  server.route({
-    method: 'GET',
-    path: '/',
-    handler: function (request, reply) {
-      return reply('Hello World\n');
-    }
-  });
   server.inject('/', (res) => {
     Code.expect(res.statusCode).to.equal(200);
     Code.expect(res.result).to.equal('Hello World\n');

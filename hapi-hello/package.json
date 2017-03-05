@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "lab --verbose ./test/index.js ",
-    "rejoice":"rejoice –c index.js –p .",
+    "test": "lab --verbose -c ./test/index.js ",
+    "rejoice": "rejoice –c index.js –p .",
     "compile": "babel --presets es2015 -d lib/ src/",
     "start": "nodemon src/server.js --exec babel-node --presets es2015",
     "build": "babel src -d dist --presets es2015",
@@ -19,6 +19,7 @@
     "glue": "^4.1.0",
     "handlebars": "^4.0.6",
     "hapi": "^16.1.0",
+    "hapi-auth-basic": "^4.2.0",
     "inert": "^4.1.0",
     "ioredis": "^2.5.0",
     "joi": "^10.2.2",
